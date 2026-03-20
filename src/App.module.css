@@ -1,0 +1,16 @@
+.app {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface);
+}
+
+.content {
+  flex: 1;
+  padding: var(--space-md);
+  padding-bottom: calc(var(--space-xl) + 60px);
+  background: var(--color-bg);
+}

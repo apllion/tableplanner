@@ -1,0 +1,13 @@
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.waiting { background: var(--color-waiting); }
+.playing { background: var(--color-playing); }
+.finished { background: var(--color-finished); }
+.active { background: var(--color-online); }
+.away { background: var(--color-away); }

@@ -1,0 +1,70 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--space-md);
+  background: var(--color-primary);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.playerCount {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.name:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.code {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: monospace;
+}
+
+.leaveBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-full);
+  transition: background 0.15s;
+}
+
+.leaveBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}

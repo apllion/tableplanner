@@ -1,0 +1,74 @@
+.slot {
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.filled {
+  background: var(--color-success-bg);
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.reserved {
+  background: var(--color-warning-bg);
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.empty {
+  background: var(--color-bg);
+  border: 1.5px dashed var(--color-border);
+}
+
+.emptyLabel {
+  color: var(--color-text-muted);
+}
+
+.you {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.seatContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.seatMain {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.reservedBadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #92600e;
+  background: var(--color-warning-badge-bg);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+
+.seatNote {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}

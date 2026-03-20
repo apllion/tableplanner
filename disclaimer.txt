@@ -1,0 +1,53 @@
+1. Haftungsausschluss (Legal Disclaimer)
+Deutsch
+
+Haftungsausschluss: Dies ist ein privates Hobby-Projekt, das ausschließlich im Zeitraum von zwei Monaten vor bis zum Ende des Vereinstreffens zur Verfügung steht. Die Inhalte werden „wie besehen“ bereitgestellt. Ich übernehme keinerlei Gewährleistung oder Haftung für Schäden, die durch die Nutzung entstehen könnten. Die Nutzung erfolgt auf eigene Gefahr.
+
+English
+
+Disclaimer: This is a private hobby project available only during the period starting two months before and ending with the association meeting. All features are provided on an "as is" basis. The author shall not be held liable for any damages arising from the use of this project. Use at your own risk.
+
+2. Technischer Hinweis (Technical Disclaimer)
+Deutsch
+
+Technik & Performance: Dieses Projekt nutzt frei zugängliche Dienste (GitHub und Google Drive). Da für diesen begrenzten Zeitraum keine dedizierte Datenbank eingesetzt wird, ist die Datenverarbeitung (Speichern/Laden) langsam. Bitte haben Sie Geduld – jeder Klick benötigt einen Moment Zeit.
+
+English
+
+Technical Note: This project relies on free-to-use services (GitHub and Google Drive). Since no dedicated database is used for this short-term setup, data processing is slow. We appreciate your patience—each interaction may take a few moments.
+
+3. Datenschutz (GDPR / DSGVO)
+Deutsch
+
+Datenschutz: Dieses Projekt ist nicht-kommerziell und nur per Vereins-Passphrase zugänglich.
+
+Speicherung: Mit der Eingabe Ihres Namens willigen Sie ein, dass dieser in einem Google Sheet gespeichert wird.
+
+Zeitrahmen: Die Anwendung und alle darin gespeicherten Namen werden unmittelbar nach Ende des Vereinstreffens vollständig gelöscht.
+
+Drittanbieter: Infrastruktur durch GitHub/Google (technisch bedingte Verarbeitung der IP-Adresse).
+
+Nach der Löschung der aktiven Daten können diese technisch bedingt noch für einen begrenzten Zeitraum in den systemseitigen Backups der Dienstanbieter (Google/GitHub) verbleiben, auf die der Autor keinen Zugriff hat.
+
+English
+
+Privacy Policy: This is a non-commercial project accessible only via the association's passphrase.
+
+Data Storage: By entering your name, you consent to it being stored in a Google Sheet.
+
+Timeline: This application and all stored names will be permanently deleted immediately after the association meeting ends.
+
+Third-Party: Hosted via GitHub/Google (technical processing of IP addresses).
+
+After the deletion of active data, traces may remain in the service providers' (Google/GitHub) system backups for a limited time. The author has no access to or control over these backups.
+
+Die 3 Bestätigungshaken (Checkboxes)
+[ ] Haftungsausschluss: Ich nutze die App auf eigene Gefahr (verfügbar bis Ende des Treffens).
+
+[ ] Technik: Ich akzeptiere die langsamen Ladezeiten durch die Google Drive/GitHub-Anbindung.
+
+[ ] Datenschutz: Ich willige in die befristete Speicherung meines Namens ein (Löschung direkt nach dem Treffen).
+
+Um ganz sicherzugehen, kannst du deinen Datenschutz-Text um einen kleinen Satz ergänzen. Das zeigt, dass du dich auskennst:
+
+

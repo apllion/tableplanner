@@ -1,0 +1,130 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.fieldset {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.legend {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 var(--space-xs);
+}
+
+.row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.select,
+.input {
+  padding: 10px var(--space-md);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-md);
+  background: var(--color-bg);
+  min-height: var(--touch-min);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(91, 91, 214, 0.15);
+}
+
+.submit {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-min);
+  transition: background 0.15s, transform 0.1s;
+  margin-top: var(--space-sm);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reserveSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.reserveRow {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.reserveRow .input {
+  flex: 1;
+}
+
+.addBtn {
+  padding: 0 14px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  min-height: var(--touch-min);
+  transition: background 0.15s;
+}
+
+.addBtn:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.addBtn:disabled {
+  opacity: 0.4;
+}
+
+.reservedName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px var(--space-md);
+  background: var(--color-warning-bg);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+}

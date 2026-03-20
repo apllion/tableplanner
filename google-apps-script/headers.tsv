@@ -1,0 +1,8 @@
+Players:
+playerId	displayName	joinedAt	lastSeen	status
+
+Games:
+gameId	name	hostId	minPlayers	maxPlayers	maxSeats	status	createdAt	startedAt	note	scheduledDay	scheduledTime	table	endTime	endDay
+
+Seats:
+seatId	gameId	playerId	playerName	joinedAt	note	status

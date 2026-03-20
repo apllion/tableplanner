@@ -1,0 +1,73 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: calc(var(--header-height) + var(--tabbar-height));
+  z-index: 9;
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background 0.15s;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--color-border);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.label {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  min-width: 180px;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.dots {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  transition: background 0.15s, transform 0.15s;
+  padding: 0;
+  border: none;
+}
+
+.dot:hover {
+  background: var(--color-text-muted);
+}
+
+.dotActive {
+  background: var(--color-primary);
+  transform: scale(1.4);
+}
+
+.dotToday {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}

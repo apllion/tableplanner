@@ -1,0 +1,58 @@
+.wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-auto-rows: 60px;
+}
+
+.hourLabel {
+  grid-column: 1;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: right;
+  padding-top: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content {
+  position: relative;
+  border-left: 1px solid var(--color-border);
+}
+
+.slot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.slot:hover {
+  background: var(--color-surface-hover);
+}
+
+.gamePosition {
+  position: absolute;
+  z-index: 1;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.slot:hover .empty {
+  opacity: 1;
+}

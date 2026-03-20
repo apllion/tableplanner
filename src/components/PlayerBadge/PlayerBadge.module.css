@@ -1,0 +1,26 @@
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-min);
+}
+
+.name {
+  font-weight: 500;
+  font-size: var(--font-size-md);
+}
+
+.you {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.time {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

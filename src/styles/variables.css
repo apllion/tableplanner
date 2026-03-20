@@ -1,0 +1,65 @@
+:root {
+  /* Modern cool palette */
+  --color-bg: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f7f8fa;
+  --color-border: #e1e4e8;
+  --color-text: #1a1d21;
+  --color-text-secondary: #656d76;
+  --color-text-muted: #9ea7b3;
+
+  /* Accent — vibrant indigo */
+  --color-primary: #5b5bd6;
+  --color-primary-hover: #4c4cc9;
+  --color-primary-text: #ffffff;
+  --color-primary-bg: #eef0ff;
+
+  --color-success: #2da44e;
+  --color-success-bg: #dafbe1;
+  --color-warning: #d4a72c;
+  --color-warning-bg: #fff8c5;
+  --color-warning-badge-bg: #fff0b3;
+  --color-danger: #cf222e;
+  --color-danger-bg: #ffebe9;
+
+  /* Status colors */
+  --color-waiting: #d4a72c;
+  --color-playing: #2da44e;
+  --color-finished: #656d76;
+  --color-online: #2da44e;
+  --color-away: #9ea7b3;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Radii — rounder, more modern */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows — subtle layered */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-md: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --font-size-xxl: 1.75rem;
+
+  /* Touch targets */
+  --touch-min: 44px;
+
+  /* Layout */
+  --max-width: 640px;
+  --header-height: 52px;
+  --tabbar-height: 44px;
+}
