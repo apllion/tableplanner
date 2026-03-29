@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { PASSPHRASE_QUESTION, PASSPHRASE_ANSWER } from '../../lib/auth-config.js'
+import { loadIdentity } from '../../lib/storage.js'
 import styles from './JoinScreen.module.css'
 
 export default function JoinScreen({ onJoin, onRejoin, onActivate }) {
@@ -17,13 +18,17 @@ export default function JoinScreen({ onJoin, onRejoin, onActivate }) {
   const [registeredIdentity, setRegisteredIdentity] = useState(null)
   const [copied, setCopied] = useState(false)
 
-  // Auto-fill rejoin from URL parameter
+  // Auto-fill rejoin from URL parameter or localStorage
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const rejoinId = params.get('rejoin')
     if (rejoinId) {
-      setMode('rejoin')
       setCode(rejoinId)
+    } else {
+      const saved = loadIdentity()
+      if (saved?.playerId) {
+        setCode(saved.playerId)
+      }
     }
   }, [])
 

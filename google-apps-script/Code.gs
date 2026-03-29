@@ -59,6 +59,7 @@ function now() {
 
 function sendDiscord(message) {
   try {
+    Logger.log('Discord: ' + message);
     var url = PropertiesService.getScriptProperties().getProperty('DISCORD_WEBHOOK_URL');
     if (!url) return;
     UrlFetchApp.fetch(url, {
@@ -86,7 +87,13 @@ function doGet(e) {
   } catch (err) {
     result = { ok: false, error: err.message };
   }
-  return ContentService.createTextOutput(JSON.stringify(result))
+  var json = JSON.stringify(result);
+  var callback = e.parameter.callback;
+  if (callback) {
+    return ContentService.createTextOutput(callback + '(' + json + ')')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+  return ContentService.createTextOutput(json)
     .setMimeType(ContentService.MimeType.JSON);
 }
 
@@ -226,7 +233,16 @@ function actionCreateGame(p) {
       status: 'joined',
     });
 
-    sendDiscord('**' + playerName + '** is looking for players for **' + p.name + '** (1/' + maxSeats + ' seats)');
+    var freeSeats = maxSeats - 1;
+    var msg = '**' + p.name + '**';
+    if (p.note) msg += ' — ' + p.note;
+    if (p.scheduledTime) {
+      msg += '\n🕐 ' + p.scheduledTime;
+      if (p.endTime) msg += '–' + p.endTime;
+    }
+    if (freeSeats > 0) msg += '\n🪑 ' + freeSeats + ' free seat' + (freeSeats > 1 ? 's' : '');
+    msg += '\n👉 https://apllion.github.io/tableplanner/';
+    sendDiscord(msg);
 
     return { ok: true, gameId: gameId };
   } finally {
@@ -308,10 +324,8 @@ function actionJoinGame(p) {
     });
 
     var newCount = gameSeats.length + 1;
-    sendDiscord('**' + playerName + '** joined **' + gameName + '** (' + newCount + '/' + maxSeats + ' seats)');
 
     if (newCount >= maxSeats) {
-      sendDiscord('**' + gameName + '** is full! Waiting for host to start.');
     }
 
     return { ok: true };
@@ -356,7 +370,6 @@ function actionStartGame(p) {
 
     var seats = sheetToArray(getSheet('Seats')).filter(function(s) { return s.gameId === p.gameId; });
     var names = seats.map(function(s) { return s.playerName; }).join(', ');
-    sendDiscord('**' + gameName + '** has started with ' + names);
 
     return { ok: true };
   } finally {
@@ -380,7 +393,6 @@ function actionFinishGame(p) {
 
     var seats = sheetToArray(getSheet('Seats')).filter(function(s) { return s.gameId === p.gameId; });
     var names = seats.map(function(s) { return s.playerName; }).join(', ');
-    sendDiscord('**' + gameName + '** finished! ' + names + ' are now free');
 
     return { ok: true };
   } finally {
