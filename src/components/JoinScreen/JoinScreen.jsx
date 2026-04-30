@@ -77,10 +77,13 @@ export default function JoinScreen({ onJoin, onRejoin, onActivate }) {
     }
   }
 
+  const helpLink = <a href="help.html" className={styles.helpLink} title="Hilfe">?</a>
+
   if (registeredIdentity) {
     const rejoinLink = `${window.location.origin}${window.location.pathname}?rejoin=${registeredIdentity.playerId}`
     return (
       <div className={styles.screen}>
+        {helpLink}
         <div className={styles.card}>
           <h1 className={styles.title}>Welcome, {registeredIdentity.displayName}!</h1>
           <p className={styles.subtitle}>Save your player code or bookmark the link below to rejoin on any device.</p>
@@ -126,6 +129,7 @@ export default function JoinScreen({ onJoin, onRejoin, onActivate }) {
   if (!disclaimerAccepted) {
     return (
       <div className={styles.screen}>
+        {helpLink}
         <div className={styles.card}>
           <h1 className={styles.title}>Hexacon XXXVIII</h1>
           <p className={styles.subtitle}>Braunfels, 8.–17. Mai 2026</p>
@@ -209,6 +213,7 @@ export default function JoinScreen({ onJoin, onRejoin, onActivate }) {
 
   return (
     <div className={styles.screen}>
+      {helpLink}
       <div className={styles.card}>
         <h1 className={styles.title}>Hexacon XXXVIII</h1>
         <p className={styles.subtitle}>Braunfels, 8.–17. Mai 2026</p>
