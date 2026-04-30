@@ -43,6 +43,16 @@
   -webkit-box-orient: vertical;
 }
 
+.note {
+  font-size: 10px;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .info {
   display: flex;
   align-items: center;
