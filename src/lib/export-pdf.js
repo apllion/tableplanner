@@ -47,7 +47,7 @@ function ensureSpace(doc, y, needed) {
   return y
 }
 
-function drawSection(doc, title, dayGroups, seatsByGame, startY) {
+function drawSection(doc, title, dayGroups, seatsByGame, playersById, startY) {
   let y = startY
 
   // Section title
@@ -105,16 +105,43 @@ function drawSection(doc, title, dayGroups, seatsByGame, startY) {
       const name = doc.splitTextToSize(game.name, maxNameWidth)[0]
       doc.text(name, nameX, y)
 
-      // Seats
-      doc.setFont('helvetica', 'normal')
+      // Seats — highlight if free spots available
       const seatCount = seatsByGame.get(game.gameId) || 0
-      const seatsText = `${seatCount}/${game.maxSeats}`
-      doc.text(seatsText, MARGIN + 110, y)
+      const freeSeats = game.maxSeats - seatCount
+      const seatsX = MARGIN + 110
+      if (freeSeats > 0) {
+        doc.setFont('helvetica', 'bold')
+        doc.setTextColor(34, 139, 34)
+        // Draw open circle for free seats (BW-friendly)
+        doc.setDrawColor(34, 139, 34)
+        doc.setLineWidth(0.4)
+        doc.circle(seatsX + 1.5, y - 1.2, 1.5)
+        doc.text(`${seatCount}/${game.maxSeats}`, seatsX + 5, y)
+      } else {
+        doc.setFont('helvetica', 'normal')
+        // Draw filled circle for full
+        doc.setFillColor(100, 100, 100)
+        doc.circle(seatsX + 1.5, y - 1.2, 1.5, 'F')
+        doc.text(`${seatCount}/${game.maxSeats}`, seatsX + 5, y)
+      }
+      doc.setTextColor(0, 0, 0)
+      doc.setDrawColor(0, 0, 0)
 
       // Table
       if (game.table) {
         doc.setFont('helvetica', 'normal')
         doc.text(game.table, MARGIN + 125, y)
+      }
+
+      // Host name
+      const host = playersById.get(game.hostId)
+      if (host) {
+        doc.setFont('helvetica', 'normal')
+        doc.setFontSize(8)
+        doc.setTextColor(120, 120, 120)
+        doc.text(host.displayName, MARGIN + 145, y)
+        doc.setTextColor(0, 0, 0)
+        doc.setFontSize(9)
       }
 
       y += LINE_HEIGHT
@@ -150,6 +177,12 @@ export function exportCalendarPdf(data, identity) {
     seatsByGame.set(seat.gameId, (seatsByGame.get(seat.gameId) || 0) + 1)
   }
 
+  // Build player lookup
+  const playersById = new Map()
+  for (const p of data.players) {
+    playersById.set(p.playerId, p)
+  }
+
   // Player's game IDs
   const myGameIds = new Set(
     data.seats
@@ -177,13 +210,13 @@ export function exportCalendarPdf(data, identity) {
   let y = MARGIN + 20
 
   // My Games section
-  y = drawSection(doc, 'My Games', myDayGroups, seatsByGame, y)
+  y = drawSection(doc, 'My Games', myDayGroups, seatsByGame, playersById, y)
   y += 4
 
   // All Games section — start on new page
   doc.addPage()
   y = MARGIN
-  y = drawSection(doc, 'All Games', allDayGroups, seatsByGame, y)
+  y = drawSection(doc, 'All Games', allDayGroups, seatsByGame, playersById, y)
 
   doc.save('hexacon-schedule.pdf')
 }
