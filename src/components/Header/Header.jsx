@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Header.module.css'
 
-export default function Header({ identity, playerCount, onLeave }) {
+export default function Header({ identity, playerCount, onLeave, onExportPdf }) {
   const [showCode, setShowCode] = useState(false)
   const [copied, setCopied] = useState(false)
   const shortCode = identity.playerId.split('-')[0]
@@ -34,6 +34,11 @@ export default function Header({ identity, playerCount, onLeave }) {
           {identity.displayName}
           {showCode && <span className={styles.code}>{copied ? 'copied!' : shortCode}</span>}
         </button>
+        {onExportPdf && (
+          <button className={styles.pdfBtn} onClick={onExportPdf} title="Download PDF schedule">
+            PDF
+          </button>
+        )}
         <button className={styles.leaveBtn} onClick={onLeave} title="Leave event">
           &times;
         </button>

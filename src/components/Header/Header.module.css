@@ -52,6 +52,21 @@
   font-family: monospace;
 }
 
+.pdfBtn {
+  padding: 2px 8px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.pdfBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
 .leaveBtn {
   width: 28px;
   height: 28px;

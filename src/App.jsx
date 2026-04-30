@@ -68,6 +68,10 @@ export default function App() {
         identity={identity}
         playerCount={data?.players?.filter(p => p.status === 'active').length ?? 0}
         onLeave={clearIdentity}
+        onExportPdf={async () => {
+          const { exportCalendarPdf } = await import('./lib/export-pdf.js')
+          exportCalendarPdf(data, identity)
+        }}
       />
       <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
       {isCalendar && (
