@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import styles from './Header.module.css'
 
+const API_URL = import.meta.env.VITE_API_URL
+const BACKEND = API_URL ? 'prod' : (import.meta.env.DEV ? 'local' : 'prod')
+
 export default function Header({ identity, playerCount, onLeave, onExportPdf }) {
   const [showCode, setShowCode] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [showBackend, setShowBackend] = useState(false)
   const shortCode = identity.playerId.split('-')[0]
 
   function copyRejoinLink() {
@@ -17,7 +21,10 @@ export default function Header({ identity, playerCount, onLeave, onExportPdf }) 
   return (
     <header className={styles.header}>
       <div className={styles.left}>
-        <span className={styles.logo}>Hexacon XXXVIII</span>
+        <span className={styles.logo} onClick={() => setShowBackend(s => !s)}>
+          Hexacon XXXVIII
+          {showBackend && <span className={styles.backendTag}>{BACKEND}</span>}
+        </span>
       </div>
       <div className={styles.right}>
         <span className={styles.playerCount}>{playerCount} online</span>
