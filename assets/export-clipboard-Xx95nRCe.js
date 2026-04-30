@@ -1,4 +1,4 @@
-import{g as u}from"./index-Dk-xGrsF.js";function f(e,i){const n=e.maxSeats-i;let t=e.name;return n>0?t+=` (${n} frei)`:t+=" (voll)",e.scheduledDay&&e.scheduledTime&&(t+=` — ${u(e.scheduledDay)}, ${e.scheduledTime}`,e.endTime&&(t+=`–${e.endTime}`)),e.table&&(t+=` @ ${e.table}`),e.note&&(t+=` — ${e.note}`),t}function c(e,i,n){return i.length===0?`${e}: keine Spiele`:`${e} (${i.length}):
+import{g as u}from"./index-COWCHLM4.js";function f(e,i){const n=e.maxSeats-i;let t=e.name;return n>0?t+=` (${n} frei)`:t+=" (voll)",e.scheduledDay&&e.scheduledTime&&(t+=` — ${u(e.scheduledDay)}, ${e.scheduledTime}`,e.endTime&&(t+=`–${e.endTime}`)),e.table&&(t+=` @ ${e.table}`),e.note&&(t+=` — ${e.note}`),t}function c(e,i,n){return i.length===0?`${e}: keine Spiele`:`${e} (${i.length}):
 `+i.map(t=>`• ${f(t,n.get(t.gameId)||0)}`).join(`
 `)+`
 
