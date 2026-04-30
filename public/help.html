@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hexacon XXXVIII - Table Planer Hilfe</title>
+  <style>
+    :root {
+      --primary: #5b5bd6;
+      --text: #1a1a2e;
+      --text-muted: #666;
+      --bg: #f8f8fc;
+      --surface: #fff;
+      --border: #e2e2f0;
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .header {
+      background: var(--primary);
+      color: #fff;
+      padding: 24px;
+      text-align: center;
+    }
+    .header h1 { font-size: 24px; font-weight: 700; }
+    .header p { opacity: 0.8; margin-top: 4px; }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    .section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+    }
+    .section p, .section li {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .section ul {
+      padding-left: 20px;
+    }
+    .screenshot {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    .screenshot img {
+      width: 100%;
+      display: block;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .step p { margin: 0; }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .tip {
+      background: #f0f0ff;
+      border-left: 3px solid var(--primary);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Table Planer - Hilfe</h1>
+  <p>So funktioniert der Spielplaner fuer Hexacon XXXVIII</p>
+</div>
+
+<div class="container">
+
+  <!-- 0. QR Code / Einladung -->
+  <div class="section">
+    <h2>Mitmachen</h2>
+    <p>Scanne den QR-Code oder oeffne den Link, um zum Table Planer zu gelangen:</p>
+    <div style="text-align:center; margin: 16px 0;">
+      <img src="help/qrcode.png" alt="QR-Code zum Table Planer" style="width: 200px; height: 200px; image-rendering: pixelated;" />
+    </div>
+    <p style="text-align:center; font-size: 16px; font-weight: 600;">
+      <a href="/tableplanner/" style="color: var(--primary);">apllion.github.io/tableplanner</a>
+    </p>
+    <p>Du brauchst das <strong>Event-Passwort</strong> von den Organisatoren, um dich zu registrieren.</p>
+  </div>
+
+  <!-- 1. Erste Anmeldung -->
+  <div class="section">
+    <h2>1. Erste Anmeldung</h2>
+    <p>Beim ersten Besuch musst du dich mit einem Anzeigenamen und dem Event-Passwort registrieren.</p>
+    <div class="step">
+      <span class="step-number">1</span>
+      <p>Oeffne den Link oder scanne den QR-Code oben.</p>
+    </div>
+    <div class="step">
+      <span class="step-number">2</span>
+      <p>Akzeptiere die Nutzungsbedingungen.</p>
+    </div>
+    <div class="step">
+      <span class="step-number">3</span>
+      <p>Gib deinen Namen ein (mindestens 2 Zeichen).</p>
+    </div>
+    <div class="step">
+      <span class="step-number">4</span>
+      <p>Gib das Passwort ein, das du von den Organisatoren bekommen hast.</p>
+    </div>
+    <div class="step">
+      <span class="step-number">5</span>
+      <p>Klicke auf <strong>Join</strong>.</p>
+    </div>
+    <div class="screenshot">
+      <img src="help/01-join.jpg" alt="Anmeldeseite" />
+    </div>
+  </div>
+
+  <!-- 1b. Erneut anmelden / Rejoin -->
+  <div class="section">
+    <h2>2. Erneut anmelden (Rejoin)</h2>
+    <p>Dein Login bleibt im Browser gespeichert. Falls du dich auf einem neuen Geraet oder nach dem Loeschen der Browser-Daten wieder anmelden willst:</p>
+    <h3>Rejoin-Link teilen</h3>
+    <div class="step">
+      <span class="step-number">1</span>
+      <p>Klicke auf <strong>deinen Namen</strong> im Header (z.B. "Anna").</p>
+    </div>
+    <div class="step">
+      <span class="step-number">2</span>
+      <p>Dein persoenlicher Rejoin-Link wird automatisch in die Zwischenablage kopiert.</p>
+    </div>
+    <div class="step">
+      <span class="step-number">3</span>
+      <p>Oeffne den Link auf dem anderen Geraet — du bist sofort wieder eingeloggt.</p>
+    </div>
+    <div class="tip">Tipp: Schicke dir den Rejoin-Link per Nachricht, um ihn auf dem Handy oder Tablet zu oeffnen.</div>
+    <h3>Neues Passwort, gleicher Name?</h3>
+    <p>Du kannst dich jederzeit mit dem gleichen Namen und Passwort neu registrieren. Ein Rejoin-Link ist aber bequemer.</p>
+  </div>
+
+  <!-- 2. Calendar View -->
+  <div class="section">
+    <h2>3. Kalender-Ansicht</h2>
+    <p>Der Kalender zeigt alle Spiele als Karten auf einem Stundenraster. Es gibt zwei Ansichten:</p>
+    <ul>
+      <li><strong>My Games</strong> — nur Spiele, bei denen du mitmachst</li>
+      <li><strong>All Games</strong> — alle Spiele des Tages</li>
+    </ul>
+    <div class="screenshot">
+      <img src="help/02-my-calendar.jpg" alt="My Games Kalender" />
+    </div>
+    <div class="screenshot">
+      <img src="help/03-all-calendar.jpg" alt="All Games Kalender" />
+    </div>
+    <h3>Zwischen Tagen wechseln</h3>
+    <p>Nutze die Pfeile oder die Punkte unter der Tagesanzeige, um zwischen den Event-Tagen zu navigieren.</p>
+    <h3>Spiel vom Kalender erstellen</h3>
+    <p>Klicke auf eine leere Zeitzeile (mit dem <strong>+</strong>), um ein neues Spiel zu dieser Uhrzeit zu erstellen.</p>
+  </div>
+
+  <!-- 3. Game List -->
+  <div class="section">
+    <h2>4. Spieleliste</h2>
+    <p>Der Tab <strong>List</strong> zeigt alle Spiele als kompakte Karten. Hier werden auch Spiele ohne feste Uhrzeit angezeigt.</p>
+    <div class="screenshot">
+      <img src="help/04-list.jpg" alt="Spieleliste" />
+    </div>
+    <p>Klicke auf den <strong>+</strong> Button unten rechts, um ein neues Spiel ohne Zeitangabe zu erstellen.</p>
+  </div>
+
+  <!-- 4. Create Game -->
+  <div class="section">
+    <h2>5. Spiel erstellen</h2>
+    <p>Beim Erstellen eines Spiels kannst du folgende Angaben machen:</p>
+    <ul>
+      <li><strong>Game Name</strong> — Name des Brettspiels</li>
+      <li><strong>Min / Max Players</strong> — Spieleranzahl</li>
+      <li><strong>Start / End</strong> — Tag und Uhrzeit (optional)</li>
+      <li><strong>Table / Location</strong> — Tischnummer (optional)</li>
+      <li><strong>Note</strong> — Hinweis, z.B. "Anfaenger willkommen!" (optional)</li>
+      <li><strong>Reserve Seats</strong> — Plaetze fuer Gaeste reservieren</li>
+    </ul>
+    <div class="screenshot">
+      <img src="help/05-create.jpg" alt="Spiel erstellen" />
+    </div>
+    <div class="tip">Tipp: Spiele ohne Uhrzeit erscheinen nur in der Liste. Du kannst die Zeit spaeter ueber "Edit Game" hinzufuegen — dann erscheint das Spiel auch im Kalender.</div>
+  </div>
+
+  <!-- 5. Game Detail -->
+  <div class="section">
+    <h2>6. Spiel-Details</h2>
+    <p>Klicke auf ein Spiel (im Kalender oder in der Liste), um die Details zu sehen:</p>
+    <ul>
+      <li>Alle belegten und freien Plaetze</li>
+      <li><strong>Join Game</strong> — Mitspielen</li>
+      <li><strong>Leave Game</strong> — Wieder austreten</li>
+      <li><strong>Reserve Seat</strong> — Platz fuer jemand anderen reservieren</li>
+    </ul>
+    <div class="screenshot">
+      <img src="help/06-detail.jpg" alt="Spiel-Details" />
+    </div>
+    <h3>Als Ersteller (Host)</h3>
+    <p>Wenn du das Spiel erstellt hast, siehst du zusaetzlich:</p>
+    <ul>
+      <li><strong>Edit Game</strong> — Spiel bearbeiten (Name, Zeit, Plaetze, etc.)</li>
+      <li><strong>Delete Game</strong> — Spiel loeschen</li>
+    </ul>
+  </div>
+
+  <!-- 6. Players -->
+  <div class="section">
+    <h2>7. Spieler-Liste</h2>
+    <p>Der Tab <strong>Players</strong> zeigt alle registrierten Teilnehmer mit ihrem Online-Status (aktiv / abwesend).</p>
+    <div class="screenshot">
+      <img src="help/07-players.jpg" alt="Spieler-Liste" />
+    </div>
+  </div>
+
+  <!-- 7. Export -->
+  <div class="section">
+    <h2>8. Export</h2>
+    <p>Klicke auf den <strong>Export</strong> Button im Header, um deinen Spielplan herunterzuladen:</p>
+    <ul>
+      <li><strong>PDF Schedule</strong> — Druckbarer Spielplan mit "My Games" und "All Games"</li>
+      <li><strong>Excel (XLS)</strong> — Alle Spiele und Spieler als Tabelle</li>
+      <li><strong>ICS My Games</strong> — Deine Spiele als Kalender-Datei (fuer Google Calendar, Apple Calendar, etc.)</li>
+      <li><strong>ICS All Games</strong> — Alle Spiele als Kalender-Datei</li>
+    </ul>
+    <div class="screenshot">
+      <img src="help/08-export.jpg" alt="Export-Menu" />
+    </div>
+  </div>
+
+  <a class="back-link" href="/tableplanner/">Zurueck zum Table Planer</a>
+
+</div>
+
+</body>
+</html>

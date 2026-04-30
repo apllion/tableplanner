@@ -78,6 +78,7 @@ export default function Header({ identity, playerCount, onLeave, onExport }) {
             )}
           </div>
         )}
+        <a className={styles.helpBtn} href="help.html" title="Hilfe">?</a>
         <button className={styles.leaveBtn} onClick={onLeave} title="Leave event">
           &times;
         </button>

@@ -117,6 +117,26 @@
   background: var(--color-bg);
 }
 
+.helpBtn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.helpBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
 .leaveBtn {
   width: 28px;
   height: 28px;
