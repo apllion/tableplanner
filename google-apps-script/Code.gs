@@ -17,20 +17,14 @@ function getSheet(name) {
 }
 
 function sheetToArray(sheet) {
-  var data = sheet.getDataRange().getValues();
+  var range = sheet.getDataRange();
+  var data = range.getDisplayValues();
   if (data.length < 2) return [];
   var headers = data[0];
   return data.slice(1).map(function(row) {
     var obj = {};
     headers.forEach(function(h, i) {
-      var val = row[i];
-      // Convert Date objects (time cells) to HH:MM strings
-      if (val instanceof Date) {
-        var hh = String(val.getHours()).padStart(2, '0');
-        var mm = String(val.getMinutes()).padStart(2, '0');
-        val = hh + ':' + mm;
-      }
-      obj[h] = val;
+      obj[h] = row[i];
     });
     return obj;
   });
