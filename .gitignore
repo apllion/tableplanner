@@ -3,5 +3,6 @@ dist
 .env
 .env.local
 *.local
+.env.local.*
 .DS_Store
 dev-db.json
