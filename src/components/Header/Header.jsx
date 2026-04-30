@@ -70,10 +70,15 @@ export default function Header({ identity, playerCount, onLeave, onExport }) {
             </button>
             {showExportMenu && (
               <div className={styles.exportMenu}>
+                <div className={styles.exportGroup}>Export</div>
                 <button onClick={() => handleExport('pdf')}>PDF Schedule</button>
                 <button onClick={() => handleExport('xls')}>Excel (XLS)</button>
                 <button onClick={() => handleExport('ics-my')}>ICS My Games</button>
                 <button onClick={() => handleExport('ics-all')}>ICS All Games</button>
+                <div className={styles.exportGroup}>Copy to Clipboard</div>
+                <button onClick={() => handleExport('copy-all')}>All Games</button>
+                <button onClick={() => handleExport('copy-my')}>My Games</button>
+                <button onClick={() => handleExport('copy-free')}>Free Seats</button>
               </div>
             )}
           </div>

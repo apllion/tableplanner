@@ -117,6 +117,20 @@
   background: var(--color-bg);
 }
 
+.exportGroup {
+  padding: 6px var(--space-md) 2px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.exportGroup:first-child {
+  border-top: none;
+}
+
 .helpBtn {
   width: 24px;
   height: 24px;

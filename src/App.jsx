@@ -78,6 +78,9 @@ export default function App() {
           } else if (type === 'ics-my' || type === 'ics-all') {
             const { exportIcs } = await import('./lib/export-ics.js')
             exportIcs(data, identity, type === 'ics-my' ? 'my' : 'all')
+          } else if (type.startsWith('copy-')) {
+            const { copyGamesToClipboard } = await import('./lib/export-clipboard.js')
+            copyGamesToClipboard(data, identity, type.replace('copy-', ''))
           }
         }}
       />
