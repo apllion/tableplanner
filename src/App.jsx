@@ -109,6 +109,19 @@ export default function App() {
             onCreateGame={openCreateDefault}
           />
         )}
+        {activeTab === 'free' && (
+          <GameList
+            games={(data?.games ?? []).filter(g => {
+              const seatCount = (data?.seats ?? []).filter(s => s.gameId === g.gameId).length
+              return seatCount < g.maxSeats
+            })}
+            seats={data?.seats ?? []}
+            identity={identity}
+            onSelectGame={setSelectedGameId}
+            onCreateGame={openCreateDefault}
+            emptyMessage="All games are full!"
+          />
+        )}
         {activeTab === 'players' && (
           <PlayerList
             players={data?.players ?? []}

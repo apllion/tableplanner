@@ -3,7 +3,7 @@ import styles from './GameList.module.css'
 
 const STATUS_ORDER = { waiting: 0, playing: 1, finished: 2 }
 
-export default function GameList({ games, seats, identity, onSelectGame, onCreateGame }) {
+export default function GameList({ games, seats, identity, onSelectGame, onCreateGame, emptyMessage }) {
   const sorted = [...games].sort((a, b) => {
     const orderDiff = STATUS_ORDER[a.status] - STATUS_ORDER[b.status]
     if (orderDiff !== 0) return orderDiff
@@ -20,7 +20,7 @@ export default function GameList({ games, seats, identity, onSelectGame, onCreat
   return (
     <div className={styles.container}>
       {sorted.length === 0 && (
-        <p className={styles.empty}>No games yet. Create one to get started!</p>
+        <p className={styles.empty}>{emptyMessage || 'No games yet. Create one to get started!'}</p>
       )}
       <div className={styles.list}>
         {sorted.map(game => {

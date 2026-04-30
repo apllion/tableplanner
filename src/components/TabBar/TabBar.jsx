@@ -4,6 +4,7 @@ const TABS = [
   { id: 'my-calendar', label: 'My Games' },
   { id: 'all-calendar', label: 'All Games' },
   { id: 'games', label: 'List' },
+  { id: 'free', label: 'Free' },
   { id: 'players', label: 'Players' },
 ]
 
