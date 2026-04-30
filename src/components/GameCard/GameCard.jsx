@@ -36,10 +36,6 @@ export default function GameCard({ game, seatCount, isMine, onClick }) {
     <button className={`${styles.card} ${isMine ? styles.mine : ''}`} onClick={onClick}>
       <div className={styles.top}>
         <span className={styles.gameName}>{game.name}</span>
-        <span className={styles.badge}>
-          <StatusDot status={game.status} />
-          {STATUS_LABELS[game.status]}
-        </span>
       </div>
       <div className={styles.bottom}>
         <span className={styles.seats}>

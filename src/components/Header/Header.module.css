@@ -8,7 +8,7 @@
   color: #fff;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
 }
 
 .logo {
@@ -67,7 +67,11 @@
   font-family: monospace;
 }
 
-.pdfBtn {
+.exportWrap {
+  position: relative;
+}
+
+.exportBtn {
   padding: 2px 8px;
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -77,9 +81,40 @@
   transition: background 0.15s;
 }
 
-.pdfBtn:hover {
+.exportBtn:hover {
   background: rgba(255, 255, 255, 0.25);
   color: #fff;
+}
+
+.exportMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 160px;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.exportMenu button {
+  display: block;
+  width: 100%;
+  padding: 10px var(--space-md);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  transition: background 0.1s;
+}
+
+.exportMenu button:hover {
+  background: var(--color-bg);
 }
 
 .leaveBtn {

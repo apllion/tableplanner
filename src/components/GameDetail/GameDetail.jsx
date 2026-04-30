@@ -46,11 +46,6 @@ export default function GameDetail({ game, seats, identity, api, onClose, onEdit
 
   return (
     <Modal title={game.name} onClose={onClose}>
-      <div className={styles.statusRow}>
-        <StatusDot status={game.status} />
-        <span>{STATUS_LABELS[game.status]}</span>
-      </div>
-
       {playerRange && <p className={styles.meta}>{playerRange}</p>}
 
       {game.scheduledDay && (

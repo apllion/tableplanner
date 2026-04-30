@@ -1,4 +1,3 @@
-import StatusDot from '../StatusDot/StatusDot.jsx'
 import styles from './CalendarGameCard.module.css'
 
 export default function CalendarGameCard({ game, seatCount, overlapColor, isMine, onClick }) {
@@ -11,7 +10,6 @@ export default function CalendarGameCard({ game, seatCount, overlapColor, isMine
       <span className={styles.game}>{game.name}</span>
       {game.note && <span className={styles.note}>{game.note}</span>}
       <span className={styles.info}>
-        <StatusDot status={game.status} />
         {seatCount}/{game.maxSeats}
       </span>
     </button>

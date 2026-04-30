@@ -1,14 +1,27 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './Header.module.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 const BACKEND = API_URL ? 'prod' : (import.meta.env.DEV ? 'local' : 'prod')
 
-export default function Header({ identity, playerCount, onLeave, onExportPdf }) {
+export default function Header({ identity, playerCount, onLeave, onExport }) {
   const [showCode, setShowCode] = useState(false)
   const [copied, setCopied] = useState(false)
   const [showBackend, setShowBackend] = useState(false)
+  const [showExportMenu, setShowExportMenu] = useState(false)
+  const menuRef = useRef()
   const shortCode = identity.playerId.split('-')[0]
+
+  useEffect(() => {
+    if (!showExportMenu) return
+    function handleClick(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setShowExportMenu(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [showExportMenu])
 
   function copyRejoinLink() {
     const url = `${window.location.origin}${window.location.pathname}?rejoin=${identity.playerId}`
@@ -16,6 +29,11 @@ export default function Header({ identity, playerCount, onLeave, onExportPdf }) 
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     })
+  }
+
+  function handleExport(type) {
+    setShowExportMenu(false)
+    onExport?.(type)
   }
 
   return (
@@ -41,10 +59,24 @@ export default function Header({ identity, playerCount, onLeave, onExportPdf }) 
           {identity.displayName}
           {showCode && <span className={styles.code}>{copied ? 'copied!' : shortCode}</span>}
         </button>
-        {onExportPdf && (
-          <button className={styles.pdfBtn} onClick={onExportPdf} title="Download PDF schedule">
-            PDF
-          </button>
+        {onExport && (
+          <div className={styles.exportWrap} ref={menuRef}>
+            <button
+              className={styles.exportBtn}
+              onClick={() => setShowExportMenu(s => !s)}
+              title="Export"
+            >
+              Export
+            </button>
+            {showExportMenu && (
+              <div className={styles.exportMenu}>
+                <button onClick={() => handleExport('pdf')}>PDF Schedule</button>
+                <button onClick={() => handleExport('xls')}>Excel (XLS)</button>
+                <button onClick={() => handleExport('ics-my')}>ICS My Games</button>
+                <button onClick={() => handleExport('ics-all')}>ICS All Games</button>
+              </div>
+            )}
+          </div>
         )}
         <button className={styles.leaveBtn} onClick={onLeave} title="Leave event">
           &times;
