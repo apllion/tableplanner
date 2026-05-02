@@ -38,9 +38,18 @@ function findRowIndex(sheet, colIndex, value) {
   return -1;
 }
 
+var TIME_FIELDS = ['scheduledTime', 'endTime'];
+
 function appendRow(sheet, headers, obj) {
   var row = headers.map(function(h) { return obj[h] !== undefined ? obj[h] : ''; });
   sheet.appendRow(row);
+  // Force time fields to plain text to prevent Sheets auto-conversion
+  var lastRow = sheet.getLastRow();
+  headers.forEach(function(h, i) {
+    if (TIME_FIELDS.indexOf(h) >= 0 && obj[h]) {
+      sheet.getRange(lastRow, i + 1).setNumberFormat('@').setValue(obj[h]);
+    }
+  });
 }
 
 function uuid() {
@@ -266,7 +275,12 @@ function actionEditGame(p) {
           if (key === 'maxSeats' || key === 'minPlayers' || key === 'maxPlayers' || key === 'scheduledDay') {
             val = val ? Number(val) : '';
           }
-          sheet.getRange(rowIdx, colIdx + 1).setValue(val || '');
+          var cell = sheet.getRange(rowIdx, colIdx + 1);
+          if (TIME_FIELDS.indexOf(key) >= 0 && val) {
+            cell.setNumberFormat('@').setValue(val);
+          } else {
+            cell.setValue(val || '');
+          }
         }
       }
     }
